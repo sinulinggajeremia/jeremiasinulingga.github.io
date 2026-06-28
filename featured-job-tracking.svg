@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect width="640" height="400" fill="#0B1F1C"/>
+  <!-- top bar -->
+  <rect x="0" y="0" width="640" height="44" fill="#15302B"/>
+  <circle cx="28" cy="22" r="6" fill="#C9A227"/>
+  <text x="48" y="27" font-family="monospace" font-size="13" fill="#F7F5F0" opacity="0.8">JOB ORDER TRACKER — LIVE</text>
+
+  <!-- kanban columns -->
+  <g font-family="monospace" font-size="11" fill="#F7F5F0">
+    <text x="50" y="76" opacity="0.6">PLANNING</text>
+    <text x="220" y="76" opacity="0.6">RELEASED</text>
+    <text x="390" y="76" opacity="0.6">PICKING</text>
+    <text x="540" y="76" opacity="0.6">COMPLETED</text>
+  </g>
+
+  <g stroke="#3D7068" stroke-width="1" opacity="0.4">
+    <line x1="180" y1="60" x2="180" y2="370"/>
+    <line x1="350" y1="60" x2="350" y2="370"/>
+    <line x1="510" y1="60" x2="510" y2="370"/>
+  </g>
+
+  <!-- cards -->
+  <g>
+    <rect x="40" y="92" width="120" height="48" rx="4" fill="#1B3933" stroke="#3D7068"/>
+    <rect x="40" y="150" width="120" height="48" rx="4" fill="#1B3933" stroke="#3D7068"/>
+    <rect x="40" y="208" width="120" height="48" rx="4" fill="#1B3933" stroke="#3D7068"/>
+
+    <rect x="200" y="92" width="120" height="48" rx="4" fill="#1B3933" stroke="#C9A227"/>
+    <rect x="200" y="150" width="120" height="48" rx="4" fill="#1B3933" stroke="#3D7068"/>
+
+    <rect x="370" y="92" width="120" height="48" rx="4" fill="#23463F" stroke="#C9A227" stroke-width="2"/>
+    <rect x="370" y="150" width="120" height="48" rx="4" fill="#1B3933" stroke="#3D7068"/>
+    <rect x="370" y="208" width="120" height="48" rx="4" fill="#1B3933" stroke="#3D7068"/>
+
+    <rect x="520" y="92" width="100" height="48" rx="4" fill="#1B3933" stroke="#3D7068" opacity="0.7"/>
+    <rect x="520" y="150" width="100" height="48" rx="4" fill="#1B3933" stroke="#3D7068" opacity="0.7"/>
+    <rect x="520" y="208" width="100" height="48" rx="4" fill="#1B3933" stroke="#3D7068" opacity="0.7"/>
+    <rect x="520" y="266" width="100" height="48" rx="4" fill="#1B3933" stroke="#3D7068" opacity="0.7"/>
+  </g>
+
+  <text x="600" y="370" font-family="monospace" font-size="11" fill="#C9A227" text-anchor="end" opacity="0.8">100% LIVE VISIBILITY</text>
+</svg>

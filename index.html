@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremia Sinulingga — Warehouse & Logistics Manager | Digital Transformation</title>
+<meta name="description" content="22 years on the warehouse floor. 18+ self-built digital tools. Portfolio of warehouse operations, WMS, and tech-ops projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#15201D;
+    --paper:#F7F5F0;
+    --paper-dim:#EFEBE2;
+    --card:#FFFEFB;
+    --teal-deep:#0B1F1C;
+    --teal-mid:#3D7068;
+    --teal-pale:#E7EFEC;
+    --gold:#C9A227;
+    --gold-soft:#E3C667;
+    --line:rgba(11,31,28,0.14);
+    --line-strong:rgba(11,31,28,0.28);
+
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'DM Sans', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    line-height:1.5;
+  }
+
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px;}
+
+  @media (max-width:720px){
+    .wrap{padding:0 20px;}
+  }
+
+  /* ============ scroll reveal ============ */
+  .reveal{
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1);
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ============ bin-tag motif ============ */
+  .bin-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:var(--font-mono);
+    font-size:.72rem;
+    letter-spacing:.06em;
+    color:var(--teal-mid);
+    background:var(--teal-pale);
+    border:1px solid var(--line);
+    padding:4px 10px;
+    border-radius:3px;
+    text-transform:uppercase;
+  }
+  .bin-tag.gold{color:#7A6112;background:#FBF3DC;border-color:rgba(201,162,39,.35);}
+
+  /* ============ NAV ============ */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(247,245,240,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px;margin:0 auto;padding:14px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-id{
+    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.04em;color:var(--teal-deep);
+  }
+  .nav-links{display:flex;gap:28px;font-size:.88rem;font-weight:500;}
+  .nav-links a{opacity:.75;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  @media (max-width:720px){
+    .nav-links{gap:16px;font-size:.78rem;}
+    .nav-inner{padding:12px 20px;}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding:128px 0 64px;
+    position:relative;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1fr 220px;
+    gap:48px;
+    align-items:start;
+  }
+  @media (max-width:780px){
+    .hero-grid{grid-template-columns:1fr;}
+  }
+
+  .hero-eyebrow{margin-bottom:20px;}
+
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:700;
+    font-size:clamp(2.4rem, 5.4vw, 4.1rem);
+    line-height:1.04;
+    letter-spacing:-.01em;
+    color:var(--teal-deep);
+  }
+  .hero h1 .accent{color:var(--gold);}
+
+  .hero-role{
+    margin-top:18px;
+    font-size:clamp(1.05rem,1.6vw,1.3rem);
+    color:var(--teal-mid);
+    font-weight:500;
+    font-family:var(--font-display);
+  }
+
+  .hero-sub{
+    margin-top:18px;
+    max-width:560px;
+    font-size:1.02rem;
+    color:rgba(21,32,29,.78);
+  }
+
+  .hero-photo-col{
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+  }
+  .photo-frame{
+    position:relative;
+    width:180px;height:180px;
+    border-radius:6px;
+    overflow:hidden;
+    border:1px solid var(--line-strong);
+    background:var(--teal-deep);
+  }
+  .photo-frame img{width:100%;height:100%;object-fit:cover;}
+  .photo-corner-tag{
+    position:absolute;bottom:8px;left:8px;
+    font-family:var(--font-mono);
+    font-size:.62rem;
+    background:rgba(11,31,28,.82);
+    color:#F7F5F0;
+    padding:3px 7px;
+    border-radius:2px;
+    letter-spacing:.04em;
+  }
+
+  /* ============ status strip (impact bar) ============ */
+  .status-strip{
+    margin-top:52px;
+    border:1px solid var(--line-strong);
+    border-radius:8px;
+    background:var(--card);
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    overflow:hidden;
+  }
+  .status-cell{
+    padding:22px 26px;
+    border-right:1px solid var(--line);
+    position:relative;
+  }
+  .status-cell:last-child{border-right:none;}
+  .status-cell::before{
+    content:'';position:absolute;top:0;left:0;width:3px;height:100%;
+    background:var(--teal-mid);
+  }
+  .status-cell.gold::before{background:var(--gold);}
+  .status-num{
+    font-family:var(--font-mono);
+    font-size:clamp(1.5rem,3vw,2.1rem);
+    font-weight:600;
+    color:var(--teal-deep);
+  }
+  .status-label{
+    margin-top:4px;
+    font-size:.82rem;
+    color:rgba(21,32,29,.62);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+  }
+  @media (max-width:680px){
+    .status-strip{grid-template-columns:1fr;}
+    .status-cell{border-right:none;border-bottom:1px solid var(--line);}
+    .status-cell:last-child{border-bottom:none;}
+  }
+
+  /* ============ SECTION HEADERS ============ */
+  .section{padding:88px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:48px;
+    border-bottom:1px solid var(--line-strong);
+    padding-bottom:20px;
+    gap:20px;
+  }
+  .section-head h2{
+    font-family:var(--font-display);
+    font-size:clamp(1.5rem,3vw,2.1rem);
+    color:var(--teal-deep);
+    font-weight:600;
+  }
+  .section-head .section-meta{
+    font-family:var(--font-mono);
+    font-size:.76rem;
+    color:var(--teal-mid);
+    white-space:nowrap;
+  }
+  @media (max-width:600px){
+    .section{padding:60px 0;}
+    .section-head{flex-direction:column;align-items:flex-start;gap:8px;}
+  }
+
+  /* ============ FEATURED PROJECTS ============ */
+  .featured{
+    display:flex;flex-direction:column;gap:64px;
+  }
+  .feat-card{
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:44px;
+    align-items:center;
+  }
+  .feat-card.flip{grid-template-columns:1fr 1.1fr;}
+  .feat-card.flip .feat-visual{order:2;}
+  .feat-card.flip .feat-text{order:1;}
+  @media (max-width:860px){
+    .feat-card, .feat-card.flip{grid-template-columns:1fr;}
+    .feat-card.flip .feat-visual, .feat-card.flip .feat-text{order:initial;}
+  }
+
+  .feat-visual{
+    border-radius:8px;
+    overflow:hidden;
+    border:1px solid var(--line-strong);
+    background:var(--teal-pale);
+    aspect-ratio:16/10;
+    position:relative;
+  }
+  .feat-visual img{width:100%;height:100%;object-fit:cover;}
+  .feat-tag{
+    position:absolute;top:12px;left:12px;
+  }
+
+  .feat-text h3{
+    font-family:var(--font-display);
+    font-size:1.5rem;
+    color:var(--teal-deep);
+    margin:14px 0 14px;
+    line-height:1.2;
+  }
+  .feat-text .feat-problem{
+    font-size:.95rem;
+    color:rgba(21,32,29,.72);
+    margin-bottom:14px;
+  }
+  .feat-text .feat-problem strong{color:var(--ink);font-weight:600;}
+  .feat-results{
+    display:flex;flex-direction:column;gap:8px;
+    margin-top:16px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+  }
+  .feat-result-row{
+    display:flex;align-items:baseline;gap:10px;
+    font-size:.92rem;
+  }
+  .feat-result-row .res-num{
+    font-family:var(--font-mono);
+    font-weight:600;
+    color:var(--teal-mid);
+    white-space:nowrap;
+  }
+  .feat-tech{
+    margin-top:16px;
+    font-family:var(--font-mono);
+    font-size:.74rem;
+    color:rgba(21,32,29,.5);
+  }
+
+  /* ============ PROJECT GRID ============ */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:600px){.grid{grid-template-columns:1fr;}}
+
+  .grid-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:8px;
+    overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:border-color .2s, transform .2s;
+  }
+  .grid-card:hover{border-color:var(--line-strong);transform:translateY(-3px);}
+
+  .grid-visual{
+    aspect-ratio:16/9.5;
+    background:var(--teal-pale);
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .grid-visual img{width:100%;height:100%;object-fit:cover;}
+  .grid-visual .icon-only{
+    width:100%;height:100%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg, var(--teal-deep), #163530);
+  }
+  .grid-visual .icon-only svg{width:42px;height:42px;stroke:var(--gold-soft);}
+  .grid-tag{position:absolute;top:8px;left:8px;}
+
+  .grid-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column;}
+  .grid-body h4{
+    font-family:var(--font-display);
+    font-size:1rem;
+    color:var(--teal-deep);
+    margin-bottom:8px;
+    line-height:1.25;
+  }
+  .grid-body p{
+    font-size:.82rem;
+    color:rgba(21,32,29,.68);
+    flex:1;
+  }
+  .grid-result{
+    margin-top:12px;
+    font-family:var(--font-mono);
+    font-size:.74rem;
+    color:var(--teal-mid);
+    font-weight:600;
+    padding-top:10px;
+    border-top:1px solid var(--line);
+  }
+
+  /* ============ TIMELINE ============ */
+  .timeline{
+    position:relative;
+    padding-left:28px;
+    border-left:2px solid var(--line-strong);
+  }
+  .tl-item{
+    position:relative;
+    padding-bottom:40px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';
+    position:absolute;
+    left:-34px;top:4px;
+    width:11px;height:11px;
+    border-radius:50%;
+    background:var(--paper);
+    border:2px solid var(--teal-mid);
+  }
+  .tl-item.current::before{background:var(--gold);border-color:var(--gold);}
+  .tl-period{
+    font-family:var(--font-mono);
+    font-size:.78rem;
+    color:var(--teal-mid);
+    margin-bottom:4px;
+  }
+  .tl-company{
+    font-family:var(--font-display);
+    font-size:1.15rem;
+    color:var(--teal-deep);
+    font-weight:600;
+  }
+  .tl-role{
+    font-size:.88rem;
+    color:rgba(21,32,29,.62);
+    margin-top:2px;
+  }
+  .tl-detail{
+    margin-top:10px;
+    font-size:.88rem;
+    color:rgba(21,32,29,.78);
+    max-width:640px;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact{
+    background:var(--teal-deep);
+    color:#F7F5F0;
+    border-radius:12px;
+    padding:56px 48px;
+    text-align:center;
+  }
+  .contact h2{
+    font-family:var(--font-display);
+    font-size:clamp(1.6rem,3.4vw,2.3rem);
+    margin-bottom:14px;
+  }
+  .contact p{
+    color:rgba(247,245,240,.72);
+    max-width:480px;
+    margin:0 auto 32px;
+  }
+  .contact-links{
+    display:flex;gap:14px;justify-content:center;flex-wrap:wrap;
+  }
+  .contact-link{
+    font-family:var(--font-mono);
+    font-size:.84rem;
+    border:1px solid rgba(247,245,240,.3);
+    padding:11px 20px;
+    border-radius:6px;
+    transition:background .2s, border-color .2s;
+  }
+  .contact-link:hover{background:rgba(247,245,240,.08);border-color:rgba(247,245,240,.55);}
+  .contact-link.primary{
+    background:var(--gold);
+    color:var(--teal-deep);
+    border-color:var(--gold);
+    font-weight:600;
+  }
+  .contact-link.primary:hover{background:var(--gold-soft);}
+  @media (max-width:600px){
+    .contact{padding:40px 24px;}
+  }
+
+  footer{
+    padding:32px 0 48px;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:.74rem;
+    color:rgba(21,32,29,.45);
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-id">JS&middot;22Y&middot;WH-OPS</span>
+    <div class="nav-links">
+      <a href="#projects">Projects</a>
+      <a href="#timeline">Career</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-eyebrow">
+          <span class="bin-tag">WH-MGR &middot; 22Y &middot; BATAM, ID</span>
+        </div>
+        <h1>Jeremia Sinulingga</h1>
+        <div class="hero-role">Warehouse &amp; Logistics Manager — Digital Transformation</div>
+        <p class="hero-sub">22 years on the warehouse floor across electronics manufacturing. For the last few years I've been building the tools the floor actually needed myself — dashboards, trackers, and digitized workflows — instead of waiting for IT to get to it.</p>
+      </div>
+      <div class="hero-photo-col">
+        <div class="photo-frame">
+          <img src="assets/profile.svg" alt="Jeremia Sinulingga">
+          <span class="photo-corner-tag">JS-01</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="status-strip reveal">
+      <div class="status-cell">
+        <div class="status-num">18+</div>
+        <div class="status-label">Self-built tools</div>
+      </div>
+      <div class="status-cell gold">
+        <div class="status-num">22</div>
+        <div class="status-label">Years on the floor</div>
+      </div>
+      <div class="status-cell">
+        <div class="status-num">200%</div>
+        <div class="status-label">Largest productivity gain</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Featured Projects</h2>
+        <span class="section-meta">PROJ-01 — PROJ-03</span>
+      </div>
+
+      <div class="featured">
+
+        <article class="feat-card reveal">
+          <div class="feat-visual">
+            <span class="feat-tag bin-tag gold">PROJ-01</span>
+            <img src="assets/featured-picking-zone.svg" alt="Picking zone redesign layout diagram">
+          </div>
+          <div class="feat-text">
+            <span class="bin-tag">High-Runner Picking Zone Redesign</span>
+            <h3>Picking Zone Redesign: From Point-to-Point to Fixed-Bin Flow</h3>
+            <p class="feat-problem"><strong>Problem:</strong> High-runner SKUs were scattered across the warehouse with no logic to picker travel paths — pickers walked long, repeated routes for the items moved most often, capping throughput at roughly 4 lines/hour.</p>
+            <div class="feat-results">
+              <div class="feat-result-row"><span class="res-num">4 → 12 lines/hr</span><span>picking productivity (target, COO-approved)</span></div>
+              <div class="feat-result-row"><span class="res-num">↓ 78%</span><span>picker travel distance</span></div>
+              <div class="feat-result-row"><span class="res-num">150–200%</span><span>overall productivity gain</span></div>
+            </div>
+            <div class="feat-tech">Method: SKU velocity analysis · fixed-bin slotting · gravity-flow rack redesign</div>
+          </div>
+        </article>
+
+        <article class="feat-card flip reveal">
+          <div class="feat-visual">
+            <span class="feat-tag bin-tag gold">PROJ-02</span>
+            <img src="assets/featured-job-tracking.svg" alt="Job order tracking system dashboard">
+          </div>
+          <div class="feat-text">
+            <span class="bin-tag">Real-Time Job Order Tracking System</span>
+            <h3>From Chat-Based Ordering to a Live Dashboard, Built From Scratch</h3>
+            <p class="feat-problem"><strong>Problem:</strong> Job orders were prepared manually through copy-paste and pivot tables — 45 to 60 minutes per session — and pickers worked off printed hardcopy sheets with no status visibility across shifts or zones.</p>
+            <div class="feat-results">
+              <div class="feat-result-row"><span class="res-num">45–60 min → &lt;10 min</span><span>JO prep time (↓ over 80%)</span></div>
+              <div class="feat-result-row"><span class="res-num">0% → 100%</span><span>real-time order visibility, PC or PDA</span></div>
+              <div class="feat-result-row"><span class="res-num">$0</span><span>infrastructure cost — built on free-tier tools</span></div>
+            </div>
+            <div class="feat-tech">Tech: Google Apps Script · Google Sheets · HTML/JS · Netlify · role-based PIN auth</div>
+          </div>
+        </article>
+
+        <article class="feat-card reveal">
+          <div class="feat-visual">
+            <span class="feat-tag bin-tag gold">PROJ-03</span>
+            <img src="assets/featured-utilization.svg" alt="Warehouse utilization heat map dashboard">
+          </div>
+          <div class="feat-text">
+            <span class="bin-tag">Warehouse Utilization Dashboard</span>
+            <h3>Seeing the Warehouse in Real Time: Bin-Level Visibility Across Every Zone</h3>
+            <p class="feat-problem"><strong>Problem:</strong> Space utilization was tracked through periodic manual counts — no live view of which zones were full, which were idle, or where risk was building up across thousands of bins.</p>
+            <div class="feat-results">
+              <div class="feat-result-row"><span class="res-num">5,966</span><span>bins tracked in real time</span></div>
+              <div class="feat-result-row"><span class="res-num">Heat map</span><span>by traffic intensity, with risk-zone classification</span></div>
+              <div class="feat-result-row"><span class="res-num">Replaced</span><span>periodic manual counts with continuous monitoring</span></div>
+            </div>
+            <div class="feat-tech">Tech: Google Apps Script · Chart.js · Epicor ERP data integration</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="grid-projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Project Grid</h2>
+        <span class="section-meta">PROJ-04 — PROJ-18</span>
+      </div>
+
+      <div class="grid">
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-04</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 12h18M3 6h18M3 18h18" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Receiving Flow Optimization</h4>
+            <p>Redesigned the receiving process around parallel put-away instead of sequential single-lane handling, cutting the bottleneck between dock and storage.</p>
+            <div class="grid-result">&gt;90% lead time reduction (target: 1.9 days → &lt;1 day)</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-05</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 4h16v16H4z M4 12h16 M12 4v16" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Outbound Centralization Strategy Review</h4>
+            <p>Evaluated consolidating finished-goods outbound flow from multiple buildings into a single hub, weighing dock congestion, MHE capacity, and double-handling against a centralized model.</p>
+            <div class="grid-result">Structured trade-off analysis ahead of capital decision</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-06</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Warehouse Relocation for Capacity Unlock</h4>
+            <p>Planned and executed a building-to-building inventory relocation to unlock storage capacity, redesigning bin allocation and rack usage at the destination site.</p>
+            <div class="grid-result">+94% bin capacity (259 → 502 bins, actual result)</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-07</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 3v18h18" stroke-linecap="round"/><path d="M7 14l4-4 3 3 5-6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Warehouse Operations Dashboard</h4>
+            <p>Consolidated eight scattered Excel reports into a single live dashboard view, replacing fragmented manual reporting with one source of truth.</p>
+            <div class="grid-result">8 operational sections digitized, phased rollout</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-08</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/><path d="M3 18V8l4-4h8l4 6v8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Internal AGV/AMR Capability Building</h4>
+            <p>Authored and delivered internal training comparing AGV vs. AMR systems, then applied that framework to recommend AGV for the operation's fixed-route, fixed-load use case ahead of any capital investment.</p>
+            <div class="grid-result">Criteria-based recommendation, not a vendor pitch</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-09</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Cycle Count Digitization System</h4>
+            <p>Built a self-serve cycle count web app — scan or enter a bin, count against expected inventory, auto-flag variances — feeding a live dashboard with accuracy rate and full audit trail.</p>
+            <div class="grid-result">946 variances flagged across 13,683 transactions</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-10</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 9v4M12 17h.01" stroke-linecap="round"/><path d="M10.3 3.9L2.7 17.5a1.5 1.5 0 001.3 2.3h16a1.5 1.5 0 001.3-2.3L13.7 3.9a1.5 1.5 0 00-2.6 0z"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Inventory Expiry Alert System</h4>
+            <p>Replaced reactive write-offs with an automated risk-tier alert system that flags stock approaching expiry before it becomes a loss, surfaced directly from existing inventory data.</p>
+            <div class="grid-result">2,205 expired lots identified, proactive monitoring</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-11</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h7v7"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Shipping Dashboard</h4>
+            <p>Live tracking of outbound shipment status and forwarder coordination, replacing manual status checks with a single real-time view across daily dispatch volume.</p>
+            <div class="grid-result">Real-time shipment status visibility</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-12</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Inventory Dashboard</h4>
+            <p>Consolidated stock-on-hand, ageing, and movement data into one continuously updated view, pulling directly from ERP transaction data.</p>
+            <div class="grid-result">Single live view replacing manual stock reports</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-13</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 3v18h18" stroke-linecap="round"/><rect x="6" y="13" width="3" height="5"/><rect x="11" y="9" width="3" height="9"/><rect x="16" y="6" width="3" height="12"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Warehouse KPI Dashboard</h4>
+            <p>Standardized accuracy, utilization, and throughput metrics into one tracked framework, used in recurring management review cycles.</p>
+            <div class="grid-result">3-pillar KPI framework: accuracy, utilization, throughput</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-14</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M3 21V9l9-6 9 6v12" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 21v-8h6v8"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>New Warehouse Feasibility Study</h4>
+            <p>Assessed feasibility for setting up an additional warehouse facility — capacity needs, layout logic, and operational readiness — to support growing outbound volume.</p>
+            <div class="grid-result">Structured feasibility framework for capacity expansion</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-15</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M4 19V5a2 2 0 012-2h8l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2z"/><path d="M14 3v6h6"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Monthly Management Review Framework</h4>
+            <p>Designed a standardized monthly reporting template consolidating warehouse performance into a consistent, COO-ready review format.</p>
+            <div class="grid-result">Standardized recurring leadership reporting</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-16</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Warehouse Process Digitization</h4>
+            <p>Digitized core warehouse processes — receiving, put-away, picking, stock take, shipping, and reporting — moving each step off paper-based tracking.</p>
+            <div class="grid-result">6 core processes digitized end-to-end</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-17</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><rect x="3" y="11" width="18" height="9" rx="1"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>Roll Cage Trolley &amp; GPS Tracker Initiative</h4>
+            <p>Introduced roll cage trolleys to nearly double per-trip pallet capacity, paired with GPS-based tracking for in-transit visibility across the material handling fleet.</p>
+            <div class="grid-result">2x truck capacity per trip, ~IDR 40M/month saved</div>
+          </div>
+        </article>
+
+        <article class="grid-card reveal">
+          <div class="grid-visual"><span class="grid-tag bin-tag">PROJ-18</span>
+            <div class="icon-only"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6"><path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke-linecap="round"/></svg></div>
+          </div>
+          <div class="grid-body">
+            <h4>5S &amp; Order Tracking Implementation</h4>
+            <p>Led 5S workplace organization rollout alongside a digital order tracking system, replacing ad-hoc paper tracking with a structured, auditable flow.</p>
+            <div class="grid-result">~IDR 18M/month paper cost savings</div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="timeline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Career Timeline</h2>
+        <span class="section-meta">2004 — PRESENT</span>
+      </div>
+
+      <div class="timeline reveal">
+
+        <div class="tl-item current">
+          <div class="tl-period">FEB 2026 — PRESENT</div>
+          <div class="tl-company">Company E · Electronics Manufacturing, Batam</div>
+          <div class="tl-role">Warehouse Manager</div>
+          <div class="tl-detail">Leading multi-building warehouse operations and driving the digital-transformation work showcased above — dashboards, tracking systems, and process digitization built independently to close visibility gaps across receiving, storage, and outbound.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-period">2023 — FEB 2026</div>
+          <div class="tl-company">Company D · Electronics Manufacturing, Batam</div>
+          <div class="tl-role">Warehouse &amp; Logistics</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-period">2011 — 2023</div>
+          <div class="tl-company">Company C · Electronics Manufacturing, Batam</div>
+          <div class="tl-role">Logistic &amp; Warehouse Manager (2017–2023)</div>
+          <div class="tl-detail">12 years across roles of increasing responsibility, culminating in 6 years as Logistic &amp; Warehouse Manager. Delivered the Roll Cage Trolley initiative, GPS-based fleet tracking, warehouse process digitization, and 5S implementation.</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-period">2008 — 2011</div>
+          <div class="tl-company">Company B · Electronics Manufacturing, Batam</div>
+          <div class="tl-role">Production &amp; Warehouse Operations</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-period">2004 — 2008</div>
+          <div class="tl-company">Company A · Electronics Manufacturing, Batam</div>
+          <div class="tl-role">Production Operations</div>
+          <div class="tl-detail">Start of a 22-year career on the manufacturing and warehouse floor.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact reveal">
+        <h2>Let's talk warehouse operations</h2>
+        <p>Open to roles where operational depth and the ability to build the tools yourself both matter.</p>
+        <div class="contact-links">
+          <a class="contact-link primary" href="mailto:sinulinggajeremia@gmail.com">Email me</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/sinulingga-jeremia-23a170241" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="contact-link" href="https://wa.me/6282169176350" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Jeremia Sinulingga &middot; Built and deployed independently
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>

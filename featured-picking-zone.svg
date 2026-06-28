@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect width="640" height="400" fill="#E7EFEC"/>
+  <!-- rack rows -->
+  <g stroke="#0B1F1C" stroke-width="2" fill="none" opacity="0.85">
+    <rect x="60" y="60" width="120" height="280" rx="4"/>
+    <rect x="220" y="60" width="120" height="280" rx="4"/>
+    <rect x="380" y="60" width="120" height="280" rx="4"/>
+    <rect x="540" y="60" width="40" height="280" rx="4"/>
+  </g>
+  <!-- bin grid lines -->
+  <g stroke="#3D7068" stroke-width="1" opacity="0.5">
+    <line x1="60" y1="130" x2="180" y2="130"/>
+    <line x1="60" y1="200" x2="180" y2="200"/>
+    <line x1="60" y1="270" x2="180" y2="270"/>
+    <line x1="220" y1="130" x2="340" y2="130"/>
+    <line x1="220" y1="200" x2="340" y2="200"/>
+    <line x1="220" y1="270" x2="340" y2="270"/>
+    <line x1="380" y1="130" x2="500" y2="130"/>
+    <line x1="380" y1="200" x2="500" y2="200"/>
+    <line x1="380" y1="270" x2="500" y2="270"/>
+  </g>
+  <!-- high-runner highlight bins (gold) -->
+  <rect x="64" y="64" width="112" height="62" fill="#C9A227" opacity="0.35"/>
+  <rect x="224" y="64" width="112" height="62" fill="#C9A227" opacity="0.55"/>
+  <!-- old path (dashed, red-ish) -->
+  <path d="M580 370 L120 370 L120 90 L300 90 L300 370 L450 370" stroke="#A35D4A" stroke-width="2.5" fill="none" stroke-dasharray="6 6" opacity="0.6"/>
+  <!-- new path (solid teal, short) -->
+  <path d="M580 200 L380 200 L380 90 L260 90" stroke="#0B1F1C" stroke-width="3" fill="none"/>
+  <circle cx="580" cy="200" r="6" fill="#0B1F1C"/>
+  <circle cx="260" cy="90" r="6" fill="#0B1F1C"/>
+  <text x="320" y="30" font-family="monospace" font-size="14" fill="#0B1F1C" text-anchor="middle" opacity="0.7">FIXED-BIN GRAVITY-FLOW LAYOUT</text>
+</svg>

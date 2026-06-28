@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" width="640" height="400">
+  <rect width="640" height="400" fill="#F7F5F0"/>
+  <rect x="0" y="0" width="640" height="40" fill="#0B1F1C"/>
+  <text x="24" y="25" font-family="monospace" font-size="13" fill="#F7F5F0" opacity="0.85">UTILIZATION HEAT MAP — ALL ZONES</text>
+
+  <!-- heat grid -->
+  <g>
+    <!-- generate a pseudo heat grid manually -->
+    <!-- row 1 -->
+    <rect x="40" y="70" width="60" height="50" fill="#C9402A" opacity="0.85"/>
+    <rect x="104" y="70" width="60" height="50" fill="#D98C3F" opacity="0.85"/>
+    <rect x="168" y="70" width="60" height="50" fill="#3D7068" opacity="0.6"/>
+    <rect x="232" y="70" width="60" height="50" fill="#3D7068" opacity="0.45"/>
+    <rect x="296" y="70" width="60" height="50" fill="#C9402A" opacity="0.9"/>
+    <rect x="360" y="70" width="60" height="50" fill="#D98C3F" opacity="0.7"/>
+    <rect x="424" y="70" width="60" height="50" fill="#3D7068" opacity="0.5"/>
+    <rect x="488" y="70" width="60" height="50" fill="#3D7068" opacity="0.3"/>
+    <rect x="552" y="70" width="48" height="50" fill="#D98C3F" opacity="0.6"/>
+
+    <!-- row 2 -->
+    <rect x="40" y="126" width="60" height="50" fill="#D98C3F" opacity="0.75"/>
+    <rect x="104" y="126" width="60" height="50" fill="#3D7068" opacity="0.55"/>
+    <rect x="168" y="126" width="60" height="50" fill="#3D7068" opacity="0.4"/>
+    <rect x="232" y="126" width="60" height="50" fill="#C9402A" opacity="0.8"/>
+    <rect x="296" y="126" width="60" height="50" fill="#3D7068" opacity="0.5"/>
+    <rect x="360" y="126" width="60" height="50" fill="#D98C3F" opacity="0.65"/>
+    <rect x="424" y="126" width="60" height="50" fill="#3D7068" opacity="0.35"/>
+    <rect x="488" y="126" width="60" height="50" fill="#C9402A" opacity="0.7"/>
+    <rect x="552" y="126" width="48" height="50" fill="#3D7068" opacity="0.4"/>
+
+    <!-- row 3 -->
+    <rect x="40" y="182" width="60" height="50" fill="#3D7068" opacity="0.45"/>
+    <rect x="104" y="182" width="60" height="50" fill="#3D7068" opacity="0.3"/>
+    <rect x="168" y="182" width="60" height="50" fill="#D98C3F" opacity="0.6"/>
+    <rect x="232" y="182" width="60" height="50" fill="#3D7068" opacity="0.55"/>
+    <rect x="296" y="182" width="60" height="50" fill="#3D7068" opacity="0.4"/>
+    <rect x="360" y="182" width="60" height="50" fill="#C9402A" opacity="0.75"/>
+    <rect x="424" y="182" width="60" height="50" fill="#D98C3F" opacity="0.6"/>
+    <rect x="488" y="182" width="60" height="50" fill="#3D7068" opacity="0.4"/>
+    <rect x="552" y="182" width="48" height="50" fill="#3D7068" opacity="0.5"/>
+
+    <!-- row 4 -->
+    <rect x="40" y="238" width="60" height="50" fill="#3D7068" opacity="0.35"/>
+    <rect x="104" y="238" width="60" height="50" fill="#D98C3F" opacity="0.55"/>
+    <rect x="168" y="238" width="60" height="50" fill="#3D7068" opacity="0.5"/>
+    <rect x="232" y="238" width="60" height="50" fill="#3D7068" opacity="0.3"/>
+    <rect x="296" y="238" width="60" height="50" fill="#C9402A" opacity="0.8"/>
+    <rect x="360" y="238" width="60" height="50" fill="#3D7068" opacity="0.45"/>
+    <rect x="424" y="238" width="60" height="50" fill="#D98C3F" opacity="0.6"/>
+    <rect x="488" y="238" width="60" height="50" fill="#3D7068" opacity="0.35"/>
+    <rect x="552" y="238" width="48" height="50" fill="#D98C3F" opacity="0.55"/>
+  </g>
+
+  <g stroke="#0B1F1C" stroke-width="0.6" opacity="0.15">
+    <line x1="40" y1="70" x2="600" y2="70"/>
+    <line x1="40" y1="126" x2="600" y2="126"/>
+    <line x1="40" y1="182" x2="600" y2="182"/>
+    <line x1="40" y1="238" x2="600" y2="238"/>
+    <line x1="40" y1="288" x2="600" y2="288"/>
+  </g>
+
+  <text x="40" y="320" font-family="monospace" font-size="11" fill="#0B1F1C" opacity="0.6">5,966 BINS TRACKED · RISK-ZONE CLASSIFICATION BY TRAFFIC INTENSITY</text>
+</svg>
